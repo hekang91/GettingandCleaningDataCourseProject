@@ -25,7 +25,7 @@ subject_merged <- rbind(subject_test,subject_train)
 ## for each measurement. (step 2)
 features <- read.table("./UCI HAR Dataset/features.txt")
 names(features) <- c("id_feature","name_feature")
-id_mean_or_std <- c(agrep("mean",features[,"name_feature"]), agrep("std",features[,"name_feature"]))
+id_mean_or_std <- c(grep("mean()",features[,"name_feature"],fixed = TRUE), grep("std()",features[,"name_feature"]))
 id_mean_or_std <- sort(id_mean_or_std)
 X_merged <- X_merged[,id_mean_or_std]
 
